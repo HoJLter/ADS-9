@@ -99,6 +99,8 @@ std::vector<char> getPerm1(PMTree& tree, int num) {
             return curPerm;
         }
     }
+
+    return {};
 }
 
 int calcDepth(Node* root) {
@@ -139,8 +141,10 @@ std::vector<char> getPerm2(PMTree& tree, int num) {
     getPerm2I(tree.getRoot(), num - 1, &curPerm);
 
     // удалил корень
-    auto it = curPerm.begin();
-    curPerm.erase(it);
+    if (!curPerm.empty()) {
+        auto it = curPerm.begin();
+        curPerm.erase(it);
+    }
     return curPerm;
 }
 #endif  // INCLUDE_TREE_H_
