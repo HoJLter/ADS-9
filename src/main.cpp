@@ -21,7 +21,9 @@ int main() {
     PMTree tree(a);
 
     int maxPerm = factor(n);
-    int r = rand() % maxPerm + 1;
+
+    unsigned int seed = std::time(NULL);
+    int r = rand_r(&seed) % maxPerm + 1;
 
     auto start = high_resolution_clock::now();
     getAllPerms(tree);
