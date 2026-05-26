@@ -42,6 +42,14 @@ class PMTree {
   Node *getRoot() { return root; }
 };
 
+int factor(int x) {
+  int res = 1;
+  for (int i = 1; i <= x; i++) {
+    res *= i;
+  }
+  return res;
+}
+
 void getAllPermsI(Node *localRoot, std::vector<char> *curPerm,
                   std::vector<std::vector<char>> *allPerms) {
   curPerm->push_back(localRoot->data);
@@ -111,14 +119,6 @@ int calcDepth(Node *root) {
     counter++;
   }
   return counter;
-}
-
-int factor(int x) {
-  int res = 1;
-  for (int i = 1; i <= x; i++) {
-    res *= i;
-  }
-  return res;
 }
 
 void getPerm2I(Node *localRoot, int i, std::vector<char> *curPerm) {
